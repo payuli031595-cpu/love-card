@@ -1,409 +1,340 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2022.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'PingFang TC'}
-    span.s1 {font: 12.0px 'PingFang TC'}
-    span.s2 {font: 12.0px 'Apple Color Emoji'}
-    span.s3 {font: 12.0px Helvetica}
-    span.s4 {font: 12.0px 'Hiragino Sans'}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>520快樂♡</title>
+
+<style>
+html, body{
+margin:0;
+padding:0;
+min-height:100%;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:#fff5f7;
+overflow-x:hidden;
+}
+
+body{
+background:
+radial-gradient(circle at top left,#ffe3ec 0%,transparent 35%),
+radial-gradient(circle at bottom right,#ffd1dc 0%,transparent 35%),
+#fff6f8;
+}
+
+/* 飄落愛心 */
+.heart{
+position:fixed;
+top:-20px;
+color:rgba(255,133,162,0.55);
+font-size:18px;
+animation:fall linear infinite;
+pointer-events:none;
+z-index:1;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* 主容器 */
+.stage{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 16px;
+box-sizing:border-box;
+position:relative;
+z-index:5;
+}
+
+/* 卡片 */
+.card{
+width:min(430px,92vw);
+background:rgba(255,255,255,0.72);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,0.5);
+border-radius:28px;
+padding:18px;
+box-shadow:
+0 10px 40px rgba(255,133,162,0.18),
+0 2px 10px rgba(0,0,0,0.04);
+animation:fadeUp 1s ease forwards;
+opacity:0;
+transform:translateY(20px);
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.title{
+text-align:center;
+font-size:28px;
+font-weight:700;
+color:#ff6f96;
+margin:10px 0 18px;
+}
+
+.photo{
+width:100%;
+display:block;
+border-radius:18px;
+margin-bottom:18px;
+}
+
+.message{
+background:#fffafc;
+border-radius:20px;
+padding:18px 16px;
+line-height:1.95;
+font-size:15px;
+white-space:pre-wrap;
+border:1px dashed rgba(255,133,162,0.45);
+color:#5d4037;
+}
+
+.signature{
+text-align:right;
+margin-top:16px;
+color:#ff6f96;
+font-weight:600;
+font-size:15px;
+opacity:0;
+animation:showLove 2s ease forwards;
+animation-delay:2.5s;
+}
+
+@keyframes showLove{
+to{
+opacity:1;
+}
+}
+
+/* 按鈕 */
+.actions{
+margin-top:18px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.btn{
+border:none;
+background:#ff85a2;
+color:white;
+padding:11px 16px;
+border-radius:999px;
+font-size:14px;
+cursor:pointer;
+box-shadow:0 8px 18px rgba(255,133,162,0.25);
+transition:0.2s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+.btn.secondary{
+background:white;
+color:#ff6f96;
+border:1px solid rgba(255,133,162,0.4);
+box-shadow:none;
+}
+
+/* 音樂提示 */
+.tap{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:rgba(255,255,255,0.92);
+padding:10px 14px;
+border-radius:999px;
+font-size:13px;
+color:#ff6f96;
+border:1px solid rgba(255,133,162,0.35);
+display:none;
+z-index:99;
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:0.4;
+}
+}
+
+/* 小螢幕 */
+@media(max-width:480px){
+
+.title{
+font-size:24px;
+}
+
+.message{
+font-size:14px;
+line-height:1.85;
+padding:16px 14px;
+}
+
+.card{
+padding:16px;
+border-radius:24px;
+}
+}
+</style>
 </head>
+
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="zh-TW"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;<span class="s1">給親愛的驚喜</span>&lt;/title&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- LINE / FB <span class="s1">預覽</span> --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta property="og:title" content="<span class="s1">給親愛的驚喜</span> <span class="s2">❤️</span>" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta property="og:description" content="<span class="s1">這是一封只想給你看的小情書</span>" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta property="og:image" content="./photo.jpg" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta property="og:type" content="website" /&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>html, body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:</p>
-<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(circle at top left, #ffe3ec 0%, transparent 35%),</p>
-<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(circle at bottom right, #ffd1dc 0%, transparent 35%),</p>
-<p class="p1"><span class="Apple-converted-space">        </span>#fff6f8;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow-x: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow-y: auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>-webkit-overflow-scrolling: touch;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #5d4037;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.stage {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 24px 16px 40px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">漂浮愛心</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.heart {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top: -20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: rgba(255, 133, 162, 0.55);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>animation: fall linear infinite;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>pointer-events: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index: 1;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@keyframes fall {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>0% {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>transform: translateY(-10vh) rotate(0deg);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>15% {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>100% {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>transform: translateY(115vh) rotate(360deg);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">情書卡片</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.letter {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index: 5;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: min(430px, 92vw);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255, 255, 255, 0.92);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 28px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 22px 50px rgba(255, 133, 162, 0.26);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255, 133, 162, 0.2);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>animation: fadeUp 900ms ease forwards;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(14px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@keyframes fadeUp {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>to {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>transform: translateY(0);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.envelopeTop {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #ffb6c8, #ff8fab);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 18px 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 22px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: inset 0 -8px 18px rgba(255,255,255,0.18);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.smallText {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.9;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 1px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mainTitle {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 6px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 800;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">照片區</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.photoWrap {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 10px 22px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 24px rgba(93,64,55,0.12);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: rotate(-1.5deg);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.photoWrap::after {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>content: "<span class="s1">我們的回憶</span>";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>bottom: 6px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>right: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #ff85a2;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.photo {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">內容</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.message {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #fffafc;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 18px 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.95;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>white-space: pre-wrap;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px dashed rgba(255, 133, 162, 0.45);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.signature {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: right;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #ff6f98;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">按鈕</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.actions {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 13px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #ff85a2;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 20px rgba(255,133,162,0.28);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn.secondary {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #ff6f98;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,133,162,0.35);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: none;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">最後一句淡入</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.finalLove {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #ff5f8a;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 800;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(8px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: opacity 900ms ease, transform 900ms ease;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.finalLove.show {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(0);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">音樂提示</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.tapToPlay {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: fixed;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>left: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>bottom: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateX(-50%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index: 30;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.95);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #ff5f8a;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,133,162,0.35);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>animation: blink 1.5s infinite;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(6px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>-webkit-backdrop-filter: blur(6px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@keyframes blink {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>50% { opacity: 0.35; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>audio {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>left: -9999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 1px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 1px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">手機最佳化</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 380px) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.mainTitle { font-size: 21px; }</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.message { font-size: 14px; line-height: 1.9; }</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.btn { font-size: 13px; padding: 9px 11px; }</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.finalLove { font-size: 16px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="stage" id="stage"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="letter" id="letter"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="envelopeTop"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="smallText"&gt;A LITTLE LOVE LETTER&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="mainTitle"&gt;To<span class="s1">：怒怒 燊寶</span> <span class="s2">❤️</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="photoWrap"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;img class="photo" src="./photo.jpg" alt="<span class="s1">我們的回憶</span>" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="message"&gt;</p>
-<p class="p3">寶貝<span class="s3">520</span>快樂<span class="s4">♡</span></p>
-<p class="p2"><br></p>
-<p class="p3">不知不覺我們已經在一起<span class="s3">140</span>天了。</p>
-<p class="p3">這段時間我們發生了很多事，有磨擦、有吵架，也有很多一起開開心心出門玩的回憶。</p>
-<p class="p2"><br></p>
-<p class="p3">雖然我們是遠距離，沒有辦法常常待在彼此身邊，但每一次見面都很珍貴，也都會創造很多屬於我們的新回憶和新鮮感。</p>
-<p class="p2"><br></p>
-<p class="p3">雖然有時候會想你、會因為距離覺得不安，但我還是很開心遇見的人是你。</p>
-<p class="p3">謝謝你陪著我，也謝謝你願意一起努力經營這段感情。</p>
-<p class="p2"><br></p>
-<p class="p3">希望以後我們還能一起去更多地方、看更多風景，把現在的<span class="s3">140</span>天慢慢變成更久更久。</p>
-<p class="p2"><br></p>
-<p class="p3"><span class="s3">520</span>快樂，我的寶貝<span class="s4">♡</span></p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="signature"&gt;From<span class="s1">：最喜歡你的我</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="actions"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn" id="toggleMusicBtn"&gt;<span class="s2">🎵</span> <span class="s1">播放音樂</span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn secondary" id="lineShareBtn"&gt;<span class="s2">💚</span> <span class="s1">用</span> LINE <span class="s1">傳給你</span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn secondary" id="copyLinkBtn"&gt;<span class="s2">🔗</span> <span class="s1">複製連結</span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="finalLove" id="finalLove"&gt;<span class="s1">我真的很喜歡你</span> <span class="s2">🥰</span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;audio id="bgMusic" preload="auto" loop&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;source src="./music.mp3" type="audio/mpeg" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/audio&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="tapToPlay" id="tapToPlay"&gt;<span class="s1">點一下畫面開啟音樂</span> <span class="s2">🎵</span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const SITE_URL = "https://payu1031595-cpu.github.io/love-card/";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">漂浮愛心</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>function createHearts() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>for (let i = 0; i &lt; 28; i++) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const h = document.createElement("div");</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h.className = "heart";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h.textContent = Math.random() &gt; 0.5 ? "<span class="s4">♡</span>" : "<span class="s4">♥</span>";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h.style.left = Math.random() * 100 + "vw";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h.style.animationDuration = Math.random() * 4 + 5 + "s";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h.style.animationDelay = Math.random() * 4 + "s";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h.style.fontSize = Math.random() * 12 + 14 + "px";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.body.appendChild(h);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>createHearts();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>const audio = document.getElementById("bgMusic");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const tapToPlay = document.getElementById("tapToPlay");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const toggleBtn = document.getElementById("toggleMusicBtn");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const stage = document.getElementById("stage");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const letter = document.getElementById("letter");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const finalLove = document.getElementById("finalLove");</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>let isPlaying = false;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>async function startMusic() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>await audio.play();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>isPlaying = true;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>toggleBtn.textContent = "<span class="s2">⏸</span> <span class="s1">暫停音樂</span>";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>tapToPlay.style.display = "none";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>} catch (e) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>tapToPlay.style.display = "block";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>toggleBtn.textContent = "<span class="s2">🎵</span> <span class="s1">播放音樂</span>";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function pauseMusic() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>audio.pause();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>isPlaying = false;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>toggleBtn.textContent = "<span class="s2">🎵</span> <span class="s1">播放音樂</span>";</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function toggleMusic() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (isPlaying) pauseMusic();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>else startMusic();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener("load", () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>startMusic();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>checkReveal();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>stage.addEventListener("click", () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (!isPlaying) startMusic();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>toggleBtn.addEventListener("click", (e) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>e.stopPropagation();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>toggleMusic();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* LINE <span class="s1">分享</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("lineShareBtn").addEventListener("click", (e) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>e.stopPropagation();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const text = "<span class="s1">我做了一封小情書給你</span><span class="s2">❤️</span> <span class="s1">點開有驚喜：</span>";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const lineUrl =</p>
-<p class="p1"><span class="Apple-converted-space">        </span>"https://line.me/R/msg/text/?" +</p>
-<p class="p1"><span class="Apple-converted-space">        </span>encodeURIComponent(text + "\n" + SITE_URL);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>window.open(lineUrl, "_blank");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">複製網址</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("copyLinkBtn").addEventListener("click", async (e) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>e.stopPropagation();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>await navigator.clipboard.writeText(SITE_URL);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>alert("<span class="s1">已複製連結！去</span> LINE <span class="s1">貼上傳給他就可以了～</span>");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>} catch {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>alert("<span class="s1">複製失敗，你可以手動複製：</span>\n" + SITE_URL);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* <span class="s1">滑到底才淡入最後一句</span> */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>function checkReveal() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const viewportBottom = window.scrollY + window.innerHeight;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const letterBottom = letter.offsetTop + letter.offsetHeight - 15;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (viewportBottom &gt;= letterBottom) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>finalLove.classList.add("show");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener("scroll", checkReveal, { passive: true });</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<div class="stage">
+
+<div class="card">
+
+<div class="title">
+520快樂♡
+</div>
+
+<img class="photo" src="./photo.jpg">
+
+<div class="message">
+寶貝520快樂♡
+
+不知不覺我們已經在一起140天了。
+這段時間我們發生了很多事，有磨擦、有吵架，也有很多一起開開心心出門玩的回憶。
+
+雖然我們是遠距離，沒有辦法常常待在彼此身邊，但每一次見面都很珍貴，也都會創造很多屬於我們的新回憶和新鮮感。
+
+雖然有時候會想你、會因為距離覺得不安，但我還是很開心遇見的人是你。
+謝謝你陪著我，也謝謝你願意一起努力經營這段感情。
+
+希望以後我們還能一起去更多地方、看更多風景，把現在的140天慢慢變成更久更久。
+
+520快樂，我的寶貝♡
+</div>
+
+<div class="signature">
+我很喜歡你 ♡
+</div>
+
+<div class="actions">
+<button class="btn" id="musicBtn">
+🎵 暫停音樂
+</button>
+
+<button class="btn secondary" id="copyBtn">
+🔗 複製連結
+</button>
+</div>
+
+<audio id="bgm" loop>
+<source src="./music.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+</div>
+
+<div class="tap" id="tap">
+點一下畫面播放音樂 🎵
+</div>
+
+<script>
+
+/* 愛心 */
+for(let i=0;i<28;i++){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="♡";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*4+4)+"s";
+heart.style.fontSize=(Math.random()*10+12)+"px";
+heart.style.opacity=Math.random();
+
+document.body.appendChild(heart);
+}
+
+/* 音樂 */
+const audio=document.getElementById("bgm");
+const tap=document.getElementById("tap");
+const btn=document.getElementById("musicBtn");
+
+let playing=false;
+
+async function playMusic(){
+
+try{
+await audio.play();
+
+playing=true;
+btn.innerHTML="🎵 暫停音樂";
+tap.style.display="none";
+
+}catch{
+tap.style.display="block";
+}
+}
+
+function pauseMusic(){
+
+audio.pause();
+playing=false;
+btn.innerHTML="🎵 播放音樂";
+}
+
+btn.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+if(playing){
+pauseMusic();
+}else{
+playMusic();
+}
+});
+
+window.addEventListener("load",()=>{
+playMusic();
+});
+
+document.body.addEventListener("click",()=>{
+
+if(!playing){
+playMusic();
+}
+});
+
+/* 複製連結 */
+document.getElementById("copyBtn").addEventListener("click",async()=>{
+
+try{
+await navigator.clipboard.writeText(window.location.href);
+
+alert("已複製連結♡");
+
+}catch{
+
+alert("複製失敗");
+}
+});
+</script>
+
 </body>
 </html>
