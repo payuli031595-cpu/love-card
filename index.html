@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,212 +8,53 @@
 <title>520快樂♡</title>
 
 <style>
-html, body{
-margin:0;
-padding:0;
-min-height:100%;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-background:#fff5f7;
-overflow-x:hidden;
-}
 
 body{
-background:
-radial-gradient(circle at top left,#ffe3ec 0%,transparent 35%),
-radial-gradient(circle at bottom right,#ffd1dc 0%,transparent 35%),
-#fff6f8;
-}
-
-/* 飄落愛心 */
-.heart{
-position:fixed;
-top:-20px;
-color:rgba(255,133,162,0.55);
-font-size:18px;
-animation:fall linear infinite;
-pointer-events:none;
-z-index:1;
-}
-
-@keyframes fall{
-0%{
-transform:translateY(-10vh) rotate(0deg);
-opacity:1;
-}
-100%{
-transform:translateY(110vh) rotate(360deg);
-opacity:0;
-}
-}
-
-/* 主容器 */
-.stage{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:40px 16px;
-box-sizing:border-box;
-position:relative;
-z-index:5;
-}
-
-/* 卡片 */
-.card{
-width:min(430px,92vw);
-background:rgba(255,255,255,0.72);
-backdrop-filter:blur(14px);
--webkit-backdrop-filter:blur(14px);
-border:1px solid rgba(255,255,255,0.5);
-border-radius:28px;
-padding:18px;
-box-shadow:
-0 10px 40px rgba(255,133,162,0.18),
-0 2px 10px rgba(0,0,0,0.04);
-animation:fadeUp 1s ease forwards;
-opacity:0;
-transform:translateY(20px);
-}
-
-@keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-.title{
+margin:0;
+padding:40px 20px;
+background:#ffdbe6;
+font-family:sans-serif;
 text-align:center;
-font-size:28px;
-font-weight:700;
-color:#ff6f96;
-margin:10px 0 18px;
-}
-
-.photo{
-width:100%;
-display:block;
-border-radius:18px;
-margin-bottom:18px;
-}
-
-.message{
-background:#fffafc;
-border-radius:20px;
-padding:18px 16px;
-line-height:1.95;
-font-size:15px;
-white-space:pre-wrap;
-border:1px dashed rgba(255,133,162,0.45);
-color:#5d4037;
-}
-
-.signature{
-text-align:right;
-margin-top:16px;
-color:#ff6f96;
-font-weight:600;
-font-size:15px;
-opacity:0;
-animation:showLove 2s ease forwards;
-animation-delay:2.5s;
-}
-
-@keyframes showLove{
-to{
-opacity:1;
-}
-}
-
-/* 按鈕 */
-.actions{
-margin-top:18px;
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.btn{
-border:none;
-background:#ff85a2;
-color:white;
-padding:11px 16px;
-border-radius:999px;
-font-size:14px;
-cursor:pointer;
-box-shadow:0 8px 18px rgba(255,133,162,0.25);
-transition:0.2s;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-}
-
-.btn.secondary{
-background:white;
-color:#ff6f96;
-border:1px solid rgba(255,133,162,0.4);
-box-shadow:none;
-}
-
-/* 音樂提示 */
-.tap{
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-background:rgba(255,255,255,0.92);
-padding:10px 14px;
-border-radius:999px;
-font-size:13px;
-color:#ff6f96;
-border:1px solid rgba(255,133,162,0.35);
-display:none;
-z-index:99;
-animation:blink 1.5s infinite;
-}
-
-@keyframes blink{
-50%{
-opacity:0.4;
-}
-}
-
-/* 小螢幕 */
-@media(max-width:480px){
-
-.title{
-font-size:24px;
-}
-
-.message{
-font-size:14px;
-line-height:1.85;
-padding:16px 14px;
 }
 
 .card{
-padding:16px;
-border-radius:24px;
+max-width:500px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
+
+img{
+width:100%;
+border-radius:15px;
+margin-bottom:20px;
 }
+
+h1{
+color:#ff5f8a;
+}
+
+p{
+line-height:2;
+font-size:16px;
+color:#5d4037;
+white-space:pre-wrap;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="stage">
-
 <div class="card">
 
-<div class="title">
-520快樂♡
-</div>
+<img src="./photo.jpg">
 
-<img class="photo" src="./photo.jpg">
+<h1>520快樂♡</h1>
 
-<div class="message">
+<p>
 寶貝520快樂♡
 
 不知不覺我們已經在一起140天了。
@@ -226,115 +68,13 @@ border-radius:24px;
 希望以後我們還能一起去更多地方、看更多風景，把現在的140天慢慢變成更久更久。
 
 520快樂，我的寶貝♡
-</div>
+</p>
 
-<div class="signature">
-我很喜歡你 ♡
-</div>
-
-<div class="actions">
-<button class="btn" id="musicBtn">
-🎵 暫停音樂
-</button>
-
-<button class="btn secondary" id="copyBtn">
-🔗 複製連結
-</button>
-</div>
-
-<audio id="bgm" loop>
+<audio controls autoplay loop>
 <source src="./music.mp3" type="audio/mpeg">
 </audio>
 
 </div>
-</div>
-
-<div class="tap" id="tap">
-點一下畫面播放音樂 🎵
-</div>
-
-<script>
-
-/* 愛心 */
-for(let i=0;i<28;i++){
-
-const heart=document.createElement("div");
-
-heart.className="heart";
-heart.innerHTML="♡";
-
-heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(Math.random()*4+4)+"s";
-heart.style.fontSize=(Math.random()*10+12)+"px";
-heart.style.opacity=Math.random();
-
-document.body.appendChild(heart);
-}
-
-/* 音樂 */
-const audio=document.getElementById("bgm");
-const tap=document.getElementById("tap");
-const btn=document.getElementById("musicBtn");
-
-let playing=false;
-
-async function playMusic(){
-
-try{
-await audio.play();
-
-playing=true;
-btn.innerHTML="🎵 暫停音樂";
-tap.style.display="none";
-
-}catch{
-tap.style.display="block";
-}
-}
-
-function pauseMusic(){
-
-audio.pause();
-playing=false;
-btn.innerHTML="🎵 播放音樂";
-}
-
-btn.addEventListener("click",(e)=>{
-
-e.stopPropagation();
-
-if(playing){
-pauseMusic();
-}else{
-playMusic();
-}
-});
-
-window.addEventListener("load",()=>{
-playMusic();
-});
-
-document.body.addEventListener("click",()=>{
-
-if(!playing){
-playMusic();
-}
-});
-
-/* 複製連結 */
-document.getElementById("copyBtn").addEventListener("click",async()=>{
-
-try{
-await navigator.clipboard.writeText(window.location.href);
-
-alert("已複製連結♡");
-
-}catch{
-
-alert("複製失敗");
-}
-});
-</script>
 
 </body>
 </html>
